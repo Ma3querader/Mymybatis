@@ -5,8 +5,17 @@
 
 <mapper namespace="com.lakers.dao.AccountDao">
 
+    <select id="findAll" resultType="com.lakers.domain.Account">
+      select * from account
+    </select>
+
     <select id="findByName" parameterType="java.lang.String" resultType="com.lakers.domain.Account">
         select * from account where username = #{name}
     </select>
+
+    <insert id="saveAccount" parameterType="com.lakers.domain.Account">
+        insert into account(username,password,sex)
+        values(#{username},#{password},#{sex})
+    </insert>
 
 </mapper>
