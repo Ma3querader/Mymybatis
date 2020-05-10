@@ -24,7 +24,6 @@ public class TestAccount {
             SqlSession sqlSession = sqlSessionFactory.openSession();
             Account account = sqlSession.selectOne("com.lakers.dao.AccountDao.findByName", "小明");
             System.out.println(account);
-            System.out.println(1);
         } catch (IOException e) {
             e.printStackTrace();
         }
