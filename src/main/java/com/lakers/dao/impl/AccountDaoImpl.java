@@ -2,6 +2,7 @@ package com.lakers.dao.impl;
 
 import com.lakers.dao.AccountDao;
 import com.lakers.domain.Account;
+import com.lakers.vo.QueryVo;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -36,6 +37,11 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     public List<Account> findByCondition(Account account) {
+        return null;
+    }
+
+    @Override
+    public List<Account> findByPwd(QueryVo vo) {
         return null;
     }
 }

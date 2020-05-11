@@ -1,6 +1,7 @@
 package com.lakers.dao;
 
 import com.lakers.domain.Account;
+import com.lakers.vo.QueryVo;
 
 import java.util.List;
 
@@ -18,5 +19,7 @@ public interface AccountDao {
     void saveAccount(Account account);
 
     List<Account> findByCondition(Account account);
+
+    List<Account> findByPwd(QueryVo vo);
 
 }

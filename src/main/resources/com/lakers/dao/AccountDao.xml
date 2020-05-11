@@ -5,7 +5,11 @@
 
 <mapper namespace="com.lakers.dao.AccountDao">
 
-    <resultMap id="accountMap" type="com.lakers.domain.Account">
+    <sql id="defaultSql">
+        select * from account
+    </sql>
+
+    <resultMap id="accountMap" type="account">
         <result column="username" property="name"></result>
         <result column="password" property="pw"></result>
         <result column="sex" property="sex"></result>
@@ -24,8 +28,27 @@
         values(#{username},#{password},#{sex})
     </insert>
 
-    <select id="findByCondition" parameterType="com.lakers.domain.Account" resultType="com.lakers.domain.Account">
-        select * from account where username = #{username}
+    <select id="findByCondition" parameterType="account" resultMap="accountMap">
+        select * from account
+        <where>
+            <if test="name != null and name != '' ">
+                and username like CONCAT('%',#{name},'%')
+            </if>
+            <if test="pw != null and pw != '' ">
+                and password = #{pw}
+            </if>
+        </where>
+    </select>
+
+    <select id="findByPwd" parameterType="com.lakers.vo.QueryVo" resultMap="accountMap">
+        <include refid="defaultSql"></include>
+        <where>
+            <if test="passwords != null and passwords.size() > 0">
+                <foreach collection="passwords" open="password in (" close=")" item="pwd" separator=",">
+                    #{pwd}
+                </foreach>
+            </if>
+        </where>
     </select>
 
 </mapper>

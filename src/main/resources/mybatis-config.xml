@@ -4,15 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <!--<settings>-->
-        <!--<setting name="logImpl" value="STDOUT_LOGGING" />-->
-    <!--</settings>-->
+
     <properties>
         <property name="jdbc.driver" value="com.mysql.jdbc.Driver"></property>
         <property name="jdbc.url" value="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8"></property>
         <property name="jdbc.username" value="root"></property>
         <property name="jdbc.password" value="root"></property>
     </properties>
+
+    <!--<settings>-->
+        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
+    <!--</settings>-->
 
     <typeAliases>
         <package name="com.lakers.domain"></package>

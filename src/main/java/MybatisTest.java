@@ -1,16 +1,19 @@
 import com.lakers.dao.AccountDao;
 import com.lakers.domain.Account;
+import com.lakers.vo.QueryVo;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @Author: panyusheng
  * @Date: 2020/5/10 23:27
+ * @Description: dao接口代理对象的方式
  * @Version 1.0
  */
 public class MybatisTest {
@@ -27,10 +30,20 @@ public class MybatisTest {
         AccountDao mapper = session.getMapper(AccountDao.class);
 
         // 使用代理对象执行查询所有方法
-        List<Account> accounts = mapper.findAll();
-        for(Account ac : accounts) {
-            System.out.println(ac);
-        }
+//        List<Account> accounts = mapper.findAll();
+//        for(Account ac : accounts) {
+//            System.out.println(ac);
+//        }
+
+        // 根据密码查询
+        QueryVo vo = new QueryVo();
+        List<String> pwds = new ArrayList<>();
+        pwds.add("10");
+        pwds.add("15");
+        pwds.add("16");
+        vo.setPasswords(pwds);
+        List<Account> byCondition = mapper.findByPwd(vo);
+        System.out.println(byCondition);
 
 
 

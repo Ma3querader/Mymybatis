@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
 /**
  * @Author: panyusheng
  * @Date: 2020/5/11 14:31
+ * @Description: dao实现类的方式
  * @Version 1.0
  */
 public class AccountDaoImplTest {
@@ -37,4 +38,5 @@ public class AccountDaoImplTest {
         List<Account> all = mapper.findAll();
         System.out.println(all);
     }
+
 }
