@@ -17,4 +17,6 @@ public interface AccountDao {
 
     void saveAccount(Account account);
 
+    List<Account> findByCondition(Account account);
+
 }

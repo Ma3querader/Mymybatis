@@ -36,10 +36,12 @@ public class MybatisTest {
 //        System.out.println(ac);
 
         Account ac = new Account();
-        ac.setUsername("小杰");
-        ac.setPassword("111");
-        ac.setSex(0);
-        mapper.saveAccount(ac);
+        ac.setUsername("小明");
+        List<Account> byCondition = mapper.findByCondition(ac);
+        for (Account acc : byCondition) {
+            System.out.println(acc);
+        }
+
 
         session.commit();
         // 释放资源

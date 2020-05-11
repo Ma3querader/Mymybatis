@@ -18,4 +18,8 @@
         values(#{username},#{password},#{sex})
     </insert>
 
+    <select id="findByCondition" parameterType="com.lakers.domain.Account" resultType="com.lakers.domain.Account">
+        select * from account where username = #{username}
+    </select>
+
 </mapper>
