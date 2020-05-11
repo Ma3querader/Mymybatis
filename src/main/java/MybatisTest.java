@@ -27,20 +27,11 @@ public class MybatisTest {
         AccountDao mapper = session.getMapper(AccountDao.class);
 
         // 使用代理对象执行查询所有方法
-//        List<Account> accounts = mapper.findAll();
-//        for(Account ac : accounts) {
-//            System.out.println(ac);
-//        }
-
-//        Account ac = mapper.findByName("小明");
-//        System.out.println(ac);
-
-        Account ac = new Account();
-        ac.setUsername("小明");
-        List<Account> byCondition = mapper.findByCondition(ac);
-        for (Account acc : byCondition) {
-            System.out.println(acc);
+        List<Account> accounts = mapper.findAll();
+        for(Account ac : accounts) {
+            System.out.println(ac);
         }
+
 
 
         session.commit();

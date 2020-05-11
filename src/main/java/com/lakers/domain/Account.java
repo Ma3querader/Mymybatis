@@ -10,26 +10,26 @@ import java.io.Serializable;
 
 public class Account implements Serializable {
 
-    private String username;
+    private String name;
 
-    private String password;
+    private String pw;
 
     private Integer sex;
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPw() {
+        return pw;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 
     public Integer getSex() {
@@ -43,8 +43,8 @@ public class Account implements Serializable {
     @Override
     public String toString() {
         return "Account{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                "name='" + name + '\'' +
+                ", pw='" + pw + '\'' +
                 ", sex=" + sex +
                 '}';
     }

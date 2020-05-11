@@ -5,7 +5,13 @@
 
 <mapper namespace="com.lakers.dao.AccountDao">
 
-    <select id="findAll" resultType="com.lakers.domain.Account">
+    <resultMap id="accountMap" type="com.lakers.domain.Account">
+        <result column="username" property="name"></result>
+        <result column="password" property="pw"></result>
+        <result column="sex" property="sex"></result>
+    </resultMap>
+
+    <select id="findAll" resultMap="accountMap">
       select * from account
     </select>
 
