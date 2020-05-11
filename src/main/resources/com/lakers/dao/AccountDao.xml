@@ -15,7 +15,7 @@
       select * from account
     </select>
 
-    <select id="findByName" parameterType="java.lang.String" resultType="com.lakers.domain.Account">
+    <select id="findByName" parameterType="java.lang.String" resultType="account">
         select * from account where username = #{name}
     </select>
 
