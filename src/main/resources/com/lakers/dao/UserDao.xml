@@ -5,6 +5,7 @@
 
 <mapper namespace="com.lakers.dao.UserDao">
 
+    <cache></cache>
     <resultMap id="userMap" type="user">
         <id property="id" column="id"></id>
         <result property="username" column="username"></result>
@@ -15,7 +16,7 @@
         </collection>
     </resultMap>
 
-    <select id="findById" resultType="user" parameterType="java.lang.Integer">
+    <select id="findById" resultType="user" parameterType="java.lang.Integer" useCache="true">
         SELECT * FROM `user` WHERE id = #{uid}
     </select>
 
