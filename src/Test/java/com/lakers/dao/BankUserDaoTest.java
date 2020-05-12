@@ -65,6 +65,20 @@ public class BankUserDaoTest {
         }
     }
 
+    /**
+     * association懒加载
+     *
+     * @return
+     */
+    @Test
+    public void associationLazyLoad() {
+        BankUserDao mapper = session.getMapper(BankUserDao.class);
+        List<Bank> banks = mapper.associationLazyLoad();
+        for (Bank bank : banks) {
+            System.out.println(bank);
+        }
+    }
+
     @After
     public void release() throws IOException {
         in.close();

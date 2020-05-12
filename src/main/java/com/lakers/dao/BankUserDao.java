@@ -29,4 +29,10 @@ public interface BankUserDao {
      */
     List<User> findByMabatis();
 
+    /**
+     * association懒加载
+     *
+     * @return
+     */
+    List<Bank> associationLazyLoad();
 }
