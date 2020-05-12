@@ -13,40 +13,43 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
  * @Author: panyusheng
- * @Date: 2020/5/12 14:27
+ * @Date: 2020/5/13 0:56
  * @Version 1.0
  */
-public class UserRoleDaoTest {
+public class MybatisAnnotationCRUDTest {
 
     private InputStream in;
-    private SqlSession session;
+    private SqlSession sqlSession;
+    private UserDao mapper;
 
     @Before
     public void init() throws IOException {
         in = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         SqlSessionFactory factory = builder.build(in);
-        session = factory.openSession();
+        sqlSession = factory.openSession();
+        mapper = sqlSession.getMapper(UserDao.class);
     }
 
+
+    /**
+     * 测试查询所有
+     */
     @Test
-    public void findAll() {
-        UserRoleDao mapper = session.getMapper(UserRoleDao.class);
-        List<User> all = mapper.findAll();
-        for (User u : all) {
-            System.out.println(u);
-//            System.out.println(u.getRoles());
-            System.out.println("--------------");
+    public void testFindAll() {
+        List<User> users = mapper.findAllByAnnotation();
+        for(User user : users) {
+            System.out.println(user);
         }
     }
 
     @After
-    public void release() throws IOException {
+    public void destory() throws IOException {
+        sqlSession.commit();
+        sqlSession.close();
         in.close();
-        session.close();
     }
+
 }

@@ -38,11 +38,11 @@ public class CacheTest {
     public void testCache() {
         UserDao mapper = session.getMapper(UserDao.class);
         User u = mapper.findById(2);
-        User user = new User();
-        user.setUsername("二丁目");
-        user.setId(2);
-        mapper.updateUser(user);
-        session.commit();
+//        User user = new User();
+//        user.setUsername("二丁目");
+//        user.setId(2);
+//        mapper.updateUser(user);
+//        session.commit();
         User u2 = mapper.findById(2);
         System.out.println(u);
         System.out.println(u2);

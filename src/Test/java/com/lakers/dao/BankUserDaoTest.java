@@ -60,7 +60,7 @@ public class BankUserDaoTest {
         List<User> byMabatis = mapper.findByMabatis();
         for (User u : byMabatis) {
             System.out.println(u);
-            System.out.println(u.getBanks());
+//            System.out.println(u.getBanks());
             System.out.println("--------------");
         }
     }
@@ -89,7 +89,7 @@ public class BankUserDaoTest {
         UserDao mapper = session.getMapper(UserDao.class);
         List<User> all = mapper.findAll();
         for (User u : all) {
-            System.out.println(u.getBanks());
+//            System.out.println(u.getBanks());
         }
     }
 

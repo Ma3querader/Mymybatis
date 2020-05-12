@@ -11,42 +11,22 @@ import java.util.List;
  */
 public class User implements Serializable {
 
-    private Integer id;
+    private Integer userId;
 
     private String username;
 
-    private String sex;
+    private String userSex;
 
-    private Date birthday;
+    private Date userBirthday;
 
-    private String address;
+    private String userAddress;
 
-    private List<Bank> banks;
-
-    private List<Role> roles;
-
-    public List<Role> getRoles() {
-        return roles;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
-    public List<Bank> getBanks() {
-        return banks;
-    }
-
-    public void setBanks(List<Bank> banks) {
-        this.banks = banks;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -57,38 +37,38 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public String getSex() {
-        return sex;
+    public String getUserSex() {
+        return userSex;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setUserSex(String userSex) {
+        this.userSex = userSex;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public Date getUserBirthday() {
+        return userBirthday;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setUserBirthday(Date userBirthday) {
+        this.userBirthday = userBirthday;
     }
 
-    public String getAddress() {
-        return address;
+    public String getUserAddress() {
+        return userAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
     }
 
-//    @Override
-//    public String toString() {
-//        return "User{" +
-//                "id=" + id +
-//                ", username='" + username + '\'' +
-//                ", sex='" + sex + '\'' +
-//                ", birthday=" + birthday +
-//                ", address='" + address + '\'' +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", userSex='" + userSex + '\'' +
+                ", userBirthday=" + userBirthday +
+                ", userAddress='" + userAddress + '\'' +
+                '}';
+    }
 }
