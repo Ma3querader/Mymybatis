@@ -18,12 +18,29 @@
         </association>
     </resultMap>
 
+    <resultMap id="userBankMap" type="user">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="sex" column="sex"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="address" column="address"></result>
+        <collection property="banks" ofType="bank">
+            <id property="accountNo" column="account_no"></id>
+            <result property="uid" column="uid"></result>
+            <result property="money" column="money"></result>
+        </collection>
+    </resultMap>
+
     <select id="findAll" resultType="bankUserVo">
         SELECT b.*, a.username, a.address FROM bank as b INNER JOIN `user` as a ON b.uid = a.id
     </select>
 
     <select id="findAllByMabatis" resultMap="bankUserMap">
         SELECT b.*, a.username, a.address FROM bank as b INNER JOIN `user` as a ON b.uid = a.id
+    </select>
+
+    <select id="findByMabatis" resultMap="userBankMap">
+        SELECT * FROM `user` as a LEFT JOIN bank as b ON a.id = b.uid
     </select>
 
 </mapper>

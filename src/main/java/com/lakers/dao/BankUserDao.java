@@ -1,6 +1,7 @@
 package com.lakers.dao;
 
 import com.lakers.domain.Bank;
+import com.lakers.domain.User;
 import com.lakers.vo.BankUserVo;
 
 import java.util.List;
@@ -15,10 +16,17 @@ public interface BankUserDao {
     List<BankUserVo> findAll();
 
     /**
-     * 通过mybatis的方式关联
+     * 通过mybatis的方式多对一关联
      *
      * @return
      */
     List<Bank> findAllByMabatis();
+
+    /**
+     * 通过mybatis的方式一对多关联
+     *
+     * @return
+     */
+    List<User> findByMabatis();
 
 }

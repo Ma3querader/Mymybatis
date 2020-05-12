@@ -2,6 +2,7 @@ package com.lakers.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: panyusheng
@@ -19,6 +20,16 @@ public class User implements Serializable {
     private Date birthday;
 
     private String address;
+
+    private List<Bank> banks;
+
+    public List<Bank> getBanks() {
+        return banks;
+    }
+
+    public void setBanks(List<Bank> banks) {
+        this.banks = banks;
+    }
 
     public Integer getId() {
         return id;

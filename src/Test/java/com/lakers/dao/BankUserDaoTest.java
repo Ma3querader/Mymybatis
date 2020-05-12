@@ -1,6 +1,7 @@
 package com.lakers.dao;
 
 import com.lakers.domain.Bank;
+import com.lakers.domain.User;
 import com.lakers.vo.BankUserVo;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -50,6 +51,17 @@ public class BankUserDaoTest {
             System.out.println(vo);
             System.out.println(vo.getUser());
             System.out.println("----------------");
+        }
+    }
+
+    @Test
+    public void findByMabatis() {
+        BankUserDao mapper = session.getMapper(BankUserDao.class);
+        List<User> byMabatis = mapper.findByMabatis();
+        for (User u : byMabatis) {
+            System.out.println(u);
+            System.out.println(u.getBanks());
+            System.out.println("--------------");
         }
     }
 
