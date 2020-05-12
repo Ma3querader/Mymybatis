@@ -1,6 +1,7 @@
 package com.lakers.dao;
 
 import com.lakers.domain.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,5 +16,7 @@ public interface UserDao {
     User findById(Integer id);
 
     List<User> findAll();
+
+    void updateUser(User u);
 
 }

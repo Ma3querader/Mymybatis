@@ -23,4 +23,8 @@
         SELECT * FROM `user`
     </select>
 
+    <update id="updateUser" parameterType="user">
+        update user set username = #{username} where id = #{id}
+    </update>
+
 </mapper>
