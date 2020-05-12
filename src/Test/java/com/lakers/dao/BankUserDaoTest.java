@@ -75,7 +75,21 @@ public class BankUserDaoTest {
         BankUserDao mapper = session.getMapper(BankUserDao.class);
         List<Bank> banks = mapper.associationLazyLoad();
         for (Bank bank : banks) {
-            System.out.println(bank);
+            System.out.println(bank.getUser());
+        }
+    }
+
+    /**
+     * collection懒加载
+     *
+     * @return
+     */
+    @Test
+    public void collectionLazyLoad() {
+        UserDao mapper = session.getMapper(UserDao.class);
+        List<User> all = mapper.findAll();
+        for (User u : all) {
+            System.out.println(u.getBanks());
         }
     }
 

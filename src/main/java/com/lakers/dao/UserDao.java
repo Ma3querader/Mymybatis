@@ -2,6 +2,7 @@ package com.lakers.dao;
 
 import com.lakers.domain.User;
 
+import java.util.List;
 
 
 /**
@@ -12,5 +13,7 @@ import com.lakers.domain.User;
 public interface UserDao {
 
     User findById(Integer id);
+
+    List<User> findAll();
 
 }

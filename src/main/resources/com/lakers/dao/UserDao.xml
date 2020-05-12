@@ -5,8 +5,22 @@
 
 <mapper namespace="com.lakers.dao.UserDao">
 
+    <resultMap id="userMap" type="user">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="sex" column="sex"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="address" column="address"></result>
+        <collection property="banks" ofType="bank" select="com.lakers.dao.BankDao.findById" column="id">
+        </collection>
+    </resultMap>
+
     <select id="findById" resultType="user" parameterType="java.lang.Integer">
-        SELECT * FROM `user` WHERE id = #{id}
+        SELECT * FROM `user` WHERE id = #{uid}
+    </select>
+
+    <select id="findAll" resultMap="userMap">
+        SELECT * FROM `user`
     </select>
 
 </mapper>
